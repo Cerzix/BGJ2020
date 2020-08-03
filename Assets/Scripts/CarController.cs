@@ -40,6 +40,15 @@ public class CarController : MonoBehaviour
     /// </summary>
     public float currentVelocity;
 
+    private void Start()
+    {
+        foreach (AxleInfo axle in axleInfos)
+        {
+            axle.leftWheel.ConfigureVehicleSubsteps(5, 5, 5);
+            axle.rightWheel.ConfigureVehicleSubsteps(5, 5, 5);
+        }
+    }
+
     private void Update() {
         if (Input.GetKeyDown(KeyCode.S))
             isPulling = true;

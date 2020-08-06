@@ -39,10 +39,8 @@ public class UIManager : MonoBehaviour
         if(car.PullStrength > 95 && cameraNoise.m_AmplitudeGain == 0 && cameraNoise.m_AmplitudeGain < 1.5)
         {
             cameraNoise.m_AmplitudeGain += 0.5f;
-        }
-        else if(car.PullStrength < 95 && cameraNoise.m_AmplitudeGain > 0)
-        {
-            cameraNoise.m_AmplitudeGain -= 0.1f;
+
+            Invoke("StopShake", 3);
         }
 
         if(car.PullStrength > 5 && trail1.time <= .3f && trail2.time <= .3f && car.currentVelocity > 0)
@@ -56,5 +54,10 @@ public class UIManager : MonoBehaviour
             trail2.time -= .01f;
         }
 
+    }
+
+    private void StopShake()
+    {
+        cameraNoise.m_AmplitudeGain = 0;
     }
 }

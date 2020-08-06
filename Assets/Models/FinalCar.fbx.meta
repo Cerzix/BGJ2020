@@ -3,7 +3,47 @@ guid: fc93d4f695762e14e9cb6ff75d8a2073
 ModelImporter:
   serializedVersion: 20101
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Base Metal
+    second: {fileID: 2100000, guid: dcf0d581217048e4fa45875bea20e939, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Gas
+    second: {fileID: 2100000, guid: 6f004acb853667e4bb27aeaf175d75af, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: License
+    second: {fileID: 2100000, guid: a8042d0daf0a3814083af31651749d1a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: License Holder
+    second: {fileID: 2100000, guid: 0af2afd890ce7044c96b5e2863a6aeac, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Stripes
+    second: {fileID: 2100000, guid: 912f9e4c6d19fa348a6edd8754e93fc7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wheel
+    second: {fileID: 2100000, guid: 18ef0c3602b37b64a92bbdbc9095fab2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wheel Metal
+    second: {fileID: 2100000, guid: d1062c7fcdb08364cbc8c2c37182212b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Window
+    second: {fileID: 2100000, guid: 3197493b5fce5b846b85195875b02470, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0

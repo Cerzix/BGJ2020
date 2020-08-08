@@ -5,6 +5,7 @@ using System.Collections.Generic;
 [System.Serializable]
 public class AxleInfo
 {
+    public Transform visualWheel;
     public WheelCollider leftWheel;
     public WheelCollider rightWheel;
     public bool motor;
@@ -29,9 +30,9 @@ public class CarController : MonoBehaviour
     [SerializeField]
     private float pullWeakenMultiplier = 10f;
     [SerializeField]
-    private float slowDownMultiplier = 10f;
+    private float slowDownMultiplier = 2f;
     [SerializeField]
-    private float pullToTorqueMultiplier = 10f;
+    private float pullToTorqueMultiplier = 14f;
 
     private float currentTorque = 0f;
 
@@ -49,13 +50,28 @@ public class CarController : MonoBehaviour
         }
     }
 
-    private void Update() {
-        if (Input.GetKeyDown(KeyCode.S))
-            isPulling = true;
-        else if (Input.GetKeyUp(KeyCode.S)) {
-            isPulling = false;
+    private bool justBoosted = false;
+    private IEnumerator Cooldown() {
+        yield return new WaitForSeconds(1);
+        justBoosted = false;
+    }
 
-            rb.velocity = Vector3.zero;
+    private void Update() {
+        if (!justBoosted) {
+            if (Input.GetKeyDown(KeyCode.S))
+                isPulling = true;
+            else if (Input.GetKeyUp(KeyCode.S)) {
+                isPulling = false;
+
+                justBoosted = true;
+                StartCoroutine(Cooldown());
+
+                rb.velocity = Vector3.zero;
+                if (pullStrength > 90 && pullStrength <= 95)
+                    rb.velocity = transform.forward * pullStrength / 10f * 2f;
+                else
+                    rb.velocity = transform.forward * pullStrength / 10f;
+            }
         }
 
         if (isPulling)
